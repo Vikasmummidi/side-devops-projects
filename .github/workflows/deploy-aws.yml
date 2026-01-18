@@ -100,7 +100,7 @@ jobs:
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: task-definition.json  # Specify full path
+        task-definition: ./aws/project-2-cicd-pipeline/task-definition.json  # Specify full path
         container-name: webapp  # Make sure this matches your container name in task definition
         image: ${{ steps.build-image.outputs.image }}
     
