@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'project-2/**'  # Only run when project-2 changes
+      - 'project-2-cicd-pipeline/**'  # Only run when project-2 changes
   pull_request:
     branches: [main]
     paths:
@@ -57,7 +57,7 @@ jobs:
     
     defaults:
       run:
-        working-directory: ./project-2
+        working-directory: ./project-2-cicd-pipeline
     
     steps:
     - name: Checkout code
@@ -100,7 +100,7 @@ jobs:
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: ./project-2/task-definition.json  # Specify full path
+        task-definition: task-definition.json  # Specify full path
         container-name: webapp  # Make sure this matches your container name in task definition
         image: ${{ steps.build-image.outputs.image }}
     
